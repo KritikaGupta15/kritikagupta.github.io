@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kritika Gupta — Software Engineer & AI Specialist Portfolio</title>
+    <title>Kritika Gupta — Full Stack Software Engineer & AI Specialist</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -16,6 +16,8 @@
             --bg-light: #f8fafc;
             --card-bg: #ffffff;
             --border-color: #e2e8f0;
+            --highlight-bg: #fef3c7;
+            --highlight-border: #f59e0b;
         }
 
         * {
@@ -117,6 +119,72 @@
             font-size: 1.05rem;
             color: var(--text-dark);
             line-height: 1.7;
+        }
+
+        /* Spotlight Publication Card */
+        .pub-spotlight {
+            background: linear-gradient(to right, #eff6ff, #f8fafc);
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .pub-spotlight h3 {
+            font-size: 1.15rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-spotlight .pub-meta {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .pub-spotlight p {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        /* Certifications Grid */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .cert-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+        }
+
+        .cert-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .cert-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
 
         .skills-grid {
@@ -242,52 +310,12 @@
             margin-bottom: 1rem;
         }
 
-        /* Certifications Grid Styling */
-        .certs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.25rem;
-        }
-
-        .cert-card {
-            background: var(--bg-light);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.25rem;
-            text-align: center;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .cert-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent);
-        }
-
-        .cert-card i {
-            font-size: 2rem;
-            color: var(--accent);
-            margin-bottom: 0.75rem;
-        }
-
-        .cert-card h3 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .cert-card p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
         footer {
             text-align: center;
             padding: 2rem;
-            color: var(--text-muted);
+            color: #94a3b8;
             font-size: 0.9rem;
             background: var(--primary);
-            color: #94a3b8;
         }
 
         @media (max-width: 768px) {
@@ -320,6 +348,18 @@
             <p class="summary-text">
                 Full-Stack Software Engineer and Published IEEE AI Researcher with a Master of Science in Computer Science from Central Michigan University (3.77 GPA). Experienced in architecting robust backend microservices, real-time data streaming pipelines, and responsive frontend applications using C#, Java, Python, and React. Passionate about AI-first software engineering, building secure cloud deployments, and delivering scalable enterprise solutions.
             </p>
+        </section>
+
+        <!-- IEEE Publication Spotlight -->
+        <section>
+            <h2><i class="fas fa-book-open"></i> Featured IEEE Publication Spotlight</h2>
+            <div class="pub-spotlight">
+                <h3>"Regime-Aware Deep Learning Framework for Predictive Maintenance in Industrial Systems"</h3>
+                <div class="pub-meta">IEEE Xplore (MLISE 2026) | DOI: 10.1109/MLISE70044.2026.11607667</div>
+                <p>
+                    Developed advanced telemetry processing pipelines and deep learning architectures incorporating custom clustering and LSTM+Attention mechanisms to analyze high-frequency sensor streams and predict equipment anomalies in complex industrial environments.
+                </p>
+            </div>
         </section>
 
         <!-- Certifications -->
@@ -422,37 +462,49 @@
             </div>
         </section>
 
-        <!-- Featured Projects -->
+        <!-- Featured Engineering Projects -->
         <section>
             <h2><i class="fas fa-project-diagram"></i> Featured Engineering Projects</h2>
             <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Connected Vehicle Fleet Telemetry Pipeline</div>
+                        <span class="project-tech">Java • Spring Boot • Kafka • BigQuery • GCP</span>
+                        <p class="project-desc">Built an end-to-end telemetry ingestion prototype processing high-frequency vehicle health signals, trip logs, and diagnostic alerts with real-time event-driven data flows.</p>
+                    </div>
+                </div>
+
                 <div class="project-card">
                     <div>
                         <div class="project-title">NexusCore HFT Simulator</div>
                         <span class="project-tech">Python • FastAPI • WebSockets • React</span>
-                        <p class="project-desc">Engineered an in-memory high-frequency trading matching engine with O(1) order book lookups and real-time WebSocket state streaming to a React dashboard.</p>
+                        <p class="project-desc">Engineered an in-memory high-frequency trading matching engine with O(1) order book lookups and real-time WebSocket state streaming to an interactive React dashboard.</p>
                     </div>
                 </div>
+
                 <div class="project-card">
                     <div>
                         <div class="project-title">Agentic AI Smart City Assistant</div>
                         <span class="project-tech">Python • RAG • ChromaDB • DeepSeek LLM</span>
-                        <p class="project-desc">Developed an autonomous multi-agent platform utilizing RAG and vector retrieval to process, index, and query dynamic urban data streams.</p>
+                        <p class="project-desc">Developed an autonomous multi-agent platform utilizing RAG and vector retrieval to process, index, and query dynamic urban data streams with automated tool-calling functions.</p>
                     </div>
                 </div>
+
                 <div class="project-card">
                     <div>
                         <div class="project-title">CommunityFlow Chicago</div>
                         <span class="project-tech">React • C#/.NET • PostgreSQL • Leaflet.js</span>
-                        <p class="project-desc">Architected a geospatial web application featuring spatial queries, interactive mapping, and dual-mode Gemini AI context caching for community intelligence.</p>
+                        <p class="project-desc">Architected a geospatial web application featuring spatial queries, interactive Leaflet.js mapping, and dual-mode Gemini AI context caching for community intelligence.</p>
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <!-- Education & Publication -->
+        <!-- Education -->
         <section>
-            <h2><i class="fas fa-graduation-cap"></i> Education & Publication</h2>
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
             
             <div class="timeline-item">
                 <div class="timeline-header">
@@ -468,13 +520,6 @@
                     <span class="timeline-date">Jun 2023</span>
                 </div>
                 <div class="timeline-company">Bachelor of Technology in Computer Science | GPA: 3.07 / 4.0</div>
-            </div>
-
-            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
-                <h3 style="font-size: 1rem; color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-book-open" style="color: var(--accent);"></i> IEEE Publication</h3>
-                <p style="font-size: 0.9rem; color: var(--text-dark);">
-                    <strong>Gupta, K., Barot, N., & Gargees, R. S. (2026).</strong> "Regime-Aware Deep Learning Framework for Predictive Maintenance in Industrial Systems." <em>IEEE Xplore (MLISE 2026)</em>. DOI: 10.1109/MLISE70044.2026.11607667
-                </p>
             </div>
         </section>
 
