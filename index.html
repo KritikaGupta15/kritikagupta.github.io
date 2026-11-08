@@ -1,581 +1,488 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kritika Gupta | Software Engineer & Backend Specialist</title>
-    
-    <!-- Google Fonts for elite tech aesthetic -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <title>Kritika Gupta — Software Engineer & AI Specialist Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg: #030712;
-            --surface: #0b1120;
-            --surface-hover: #111827;
-            --accent: #6366f1;
-            --accent-glow: rgba(99, 102, 241, 0.25);
-            --cyan: #22d3ee;
-            --text: #f3f4f6;
-            --muted: #9ca3af;
-            --border: rgba(255, 255, 255, 0.08);
-        }
-
-        body.light {
-            --bg: #f8fafc;
-            --surface: #ffffff;
-            --surface-hover: #f1f5f9;
-            --accent: #4f46e5;
-            --accent-glow: rgba(79, 70, 229, 0.15);
-            --cyan: #0891b2;
-            --text: #0f172a;
-            --muted: #64748b;
-            --border: rgba(0, 0, 0, 0.08);
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --accent-light: #eff6ff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', sans-serif, system-ui;
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             line-height: 1.6;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            overflow-x: hidden;
         }
 
-        code, .font-mono {
-            font-family: 'Fira Code', monospace;
-        }
-
-        /* Ambient background glow */
-        .ambient-glow {
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1000px;
-            height: 400px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, rgba(0,0,0,0) 70%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* Navigation */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 40px;
-            background: var(--bg);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            transition: background 0.3s ease;
-        }
-
-        .nav-brand {
-            font-family: 'Fira Code', monospace;
-            font-weight: 700;
-            font-size: 15px;
-            letter-spacing: -0.02em;
-            color: var(--cyan);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
-        .theme-toggle {
-            cursor: pointer;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .theme-toggle:hover {
-            border-color: var(--accent);
-        }
-
-        /* Layout Container */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        /* Header / Hero */
         header {
-            padding: 60px 0 40px;
-            text-align: left;
+            background: linear-gradient(135deg, var(--primary) 0%, #1e3a8a 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
         }
 
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 6px 14px;
-            border-radius: 99px;
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--cyan);
-            margin-bottom: 20px;
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         header h1 {
-            font-size: clamp(36px, 5vw, 56px);
+            font-size: 2.75rem;
             font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            margin-bottom: 16px;
-        }
-
-        header h1 span {
-            background: linear-gradient(135deg, var(--accent), var(--cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
         }
 
         header p {
-            font-size: 18px;
-            color: var(--muted);
-            max-width: 650px;
-            margin-bottom: 30px;
+            font-size: 1.2rem;
+            color: #93c5fd;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
-        .cta-buttons {
+        .contact-links {
             display: flex;
-            gap: 14px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
             justify-content: center;
-            padding: 10px 22px;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-top: 1rem;
         }
 
-        .btn-primary {
-            background: var(--accent);
+        .contact-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s ease;
+        }
+
+        .contact-links a:hover {
             color: #ffffff;
-            box-shadow: 0 4px 14px var(--accent-glow);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
+        .container {
+            max-width: 1000px;
+            margin: -2rem auto 3rem auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
         }
 
-        .btn-secondary {
-            background: var(--surface);
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--muted);
-        }
-
-        /* Sections */
         section {
-            margin-top: 80px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
         }
 
-        section h2 {
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 24px;
+        h2 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 0.75rem;
+            border-bottom: 2px solid var(--accent-light);
+            padding-bottom: 0.5rem;
         }
 
-        section h2::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-
-        /* Bento Grid Layout */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 20px;
-        }
-
-        .bento-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .bento-card:hover {
-            border-color: rgba(99, 102, 241, 0.4);
-            transform: translateY(-3px);
-        }
-
-        .col-span-4 { grid-column: span 4; }
-        .col-span-6 { grid-column: span 6; }
-        .col-span-8 { grid-column: span 8; }
-        .col-span-12 { grid-column: span 12; }
-
-        @media (max-width: 768px) {
-            .col-span-4, .col-span-6, .col-span-8 {
-                grid-column: span 12;
-            }
-            nav { padding: 16px 20px; }
-            .nav-links { display: none; }
-        }
-
-        /* Skills Pill Style */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-pill {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-family: 'Fira Code', monospace;
-            color: var(--text);
-        }
-
-        /* Project Cards */
-        .project-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--text);
-        }
-
-        .project-desc {
-            font-size: 14px;
-            color: var(--muted);
-            margin-bottom: 16px;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 16px;
-        }
-
-        .project-tags span {
-            font-size: 11px;
-            font-family: 'Fira Code', monospace;
-            background: var(--bg);
-            padding: 4px 8px;
-            border-radius: 6px;
-            color: var(--cyan);
-            border: 1px solid var(--border);
-        }
-
-        .card-link {
-            font-size: 13px;
-            font-weight: 600;
+        h2 i {
             color: var(--accent);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
         }
 
-        .card-link:hover {
-            text-decoration: underline;
+        .summary-text {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            line-height: 1.7;
         }
 
-        /* Experience Timeline */
-        .timeline {
-            border-left: 2px solid var(--border);
-            margin-left: 10px;
-            padding-left: 24px;
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .skill-category {
+            background: var(--bg-light);
+            padding: 1.25rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .skill-category h3 {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .skill-category p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
         .timeline-item {
+            margin-bottom: 1.75rem;
             position: relative;
-            margin-bottom: 32px;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--border-color);
         }
 
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -31px;
-            top: 4px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--cyan);
-            box-shadow: 0 0 0 4px var(--bg);
+        .timeline-item:last-child {
+            margin-bottom: 0;
         }
 
-        .timeline-date {
-            font-size: 12px;
-            font-family: 'Fira Code', monospace;
-            color: var(--cyan);
-            margin-bottom: 4px;
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .timeline-title {
-            font-size: 16px;
             font-weight: 600;
-            margin-bottom: 6px;
+            font-size: 1.05rem;
+            color: var(--primary);
         }
 
-        .timeline-desc {
-            font-size: 14px;
-            color: var(--muted);
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            background: var(--accent-light);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
         }
 
-        /* Footer */
-        footer {
-            margin-top: 100px;
-            padding: 40px 0;
-            border-top: 1px solid var(--border);
+        .timeline-company {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .timeline-item ul {
+            list-style-type: disc;
+            padding-left: 1.2rem;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.35rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tech {
+            font-size: 0.8rem;
+            color: var(--accent);
+            background: var(--accent-light);
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        /* Certifications Grid Styling */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .cert-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
             text-align: center;
-            font-size: 13px;
-            color: var(--muted);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+        }
+
+        .cert-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .cert-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: var(--primary);
+            color: #94a3b8;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            .container { margin-top: -1rem; padding: 0 1rem; }
+            section { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="ambient-glow"></div>
-
-    <nav>
-        <div class="nav-brand">kritika.gupta()</div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
-            <a href="#contact">Contact</a>
+    <header>
+        <div class="header-content">
+            <h1>Kritika Gupta</h1>
+            <p>Full Stack Software Engineer & AI Systems Specialist</p>
+            <div class="contact-links">
+                <a href="tel:9894922936"><i class="fas fa-phone"></i> (989) 492-2936</a>
+                <a href="mailto:work.kritikagupta13@gmail.com"><i class="fas fa-envelope"></i> work.kritikagupta13@gmail.com</a>
+                <a href="https://github.com/KritikaGupta15" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://linkedin.com/in/kritika-gupta-73335a276" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
         </div>
-        <button class="theme-toggle" onclick="toggleTheme()">Theme</button>
-    </nav>
+    </header>
 
     <div class="container">
-        
-        <!-- HEADER / HERO -->
-        <header>
-            <div class="badge">🚀 Open to Software Engineering Roles</div>
-            <h1>Hi, I'm <span>Kritika Gupta</span></h1>
-            <p>Software Engineer specializing in robust backend architectures, low-latency matching systems, and scalable cloud applications.</p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">Explore Work</a>
-                <a href="mailto:work.kritikagupta13@gmail.com" class="btn btn-secondary">Get in Touch</a>
-            </div>
-        </header>
 
-        <!-- ABOUT & HIGHLIGHTS -->
-        <section id="about">
-            <h2>Background</h2>
-            <div class="bento-grid">
-                <div class="bento-card col-span-8">
-                    <h3 class="project-title">Engineering Systems that Scale</h3>
-                    <p class="project-desc">
-                        I hold a Master's degree in Computer Science and have extensive experience building high-performance APIs, 
-                        distributed services, and database layers using Python, FastAPI, and C++. My work bridges the gap between 
-                        clean software engineering principles and heavy concurrent workloads. Additionally, I am a co-author of an 
-                        IEEE-published research paper focused on deep learning frameworks for industrial predictive maintenance.
-                    </p>
+        <!-- Professional Summary -->
+        <section>
+            <h2><i class="fas fa-user-tie"></i> Professional Summary</h2>
+            <p class="summary-text">
+                Full-Stack Software Engineer and Published IEEE AI Researcher with a Master of Science in Computer Science from Central Michigan University (3.77 GPA). Experienced in architecting robust backend microservices, real-time data streaming pipelines, and responsive frontend applications using C#, Java, Python, and React. Passionate about AI-first software engineering, building secure cloud deployments, and delivering scalable enterprise solutions.
+            </p>
+        </section>
+
+        <!-- Certifications -->
+        <section>
+            <h2><i class="fas fa-certificate"></i> Certifications & Credentials</h2>
+            <div class="certs-grid">
+                <div class="cert-card">
+                    <i class="fab fa-google"></i>
+                    <h3>Google Cloud Certified</h3>
+                    <p>Introduction to Generative AI</p>
                 </div>
-                <div class="bento-card col-span-4" style="display: flex; flex-direction: column; justify-content: center;">
-                    <span style="font-family: 'Fira Code', monospace; color: var(--cyan); font-size: 28px; font-weight: 700;">IEEE</span>
-                    <p style="font-size: 14px; color: var(--muted); margin-top: 6px;">Published Co-Author in Machine Learning & Industrial Systems</p>
+                <div class="cert-card">
+                    <i class="fab fa-microsoft"></i>
+                    <h3>Microsoft Azure</h3>
+                    <p>Azure Fundamentals (AZ-900)</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Hugging Face</h3>
+                    <p>AI Agents & LLM Toolchains</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>NVIDIA</h3>
+                    <p>Deep Learning Fundamentals</p>
                 </div>
             </div>
         </section>
 
-        <!-- SKILLS -->
-        <section id="skills">
-            <h2>Technical Arsenal</h2>
-            <div class="bento-grid">
-                <div class="bento-card col-span-12">
-                    <div class="skills-container">
-                        <span class="skill-pill">Python</span>
-                        <span class="skill-pill">C++</span>
-                        <span class="skill-pill">FastAPI</span>
-                        <span class="skill-pill">PostgreSQL</span>
-                        <span class="skill-pill">SQLAlchemy ORM</span>
-                        <span class="skill-pill">React / Vite</span>
-                        <span class="skill-pill">Docker</span>
-                        <span class="skill-pill">AWS / Cloud</span>
-                        <span class="skill-pill">WebSockets</span>
-                        <span class="skill-pill">RESTful Architectures</span>
-                        <span class="skill-pill">Tailwind CSS</span>
-                    </div>
+        <!-- Technical Skills -->
+        <section>
+            <h2><i class="fas fa-laptop-code"></i> Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages & Core</h3>
+                    <p>Python, C#, Java, C++, TypeScript, JavaScript (ES6+), SQL (PostgreSQL, SQL Server)</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend & APIs</h3>
+                    <p>ASP.NET Core Web APIs, Spring Boot, FastAPI, RESTful Services, WebSockets, Entity Framework</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Frontend & GIS</h3>
+                    <p>React, TypeScript, Tailwind CSS, Leaflet.js, HTML5/CSS3, Responsive UI Design</p>
+                </div>
+                <div class="skill-category">
+                    <h3>AI & Data Systems</h3>
+                    <p>GenAI, RAG Pipelines, ChromaDB Vector DB, DeepSeek Fine-Tuning, Multi-Agent Systems</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <p>Microsoft Azure, Google Cloud Platform (GCP), Docker, GitHub Actions CI/CD, OAuth / Entra ID</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Practices & Testing</h3>
+                    <p>Agile/Scrum, Prototype Modernization, xUnit, Pytest, Jest, Automated CI/CD Pipelines</p>
                 </div>
             </div>
         </section>
 
-        <!-- PROJECTS -->
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            <div class="bento-grid">
-                
-                <!-- NEXUSCORE HFT ENGINE -->
-                <div class="bento-card col-span-6">
-                    <h3 class="project-title">NexusCore HFT Simulator</h3>
-                    <p class="project-desc">
-                        Low-latency high-frequency trading matching engine with O(1) order book lookups, custom priority matching logic, 
-                        and real-time state broadcasts via FastAPI WebSockets and a React dashboard.
-                    </p>
-                    <div class="project-tags">
-                        <span>Python</span>
-                        <span>FastAPI</span>
-                        <span>WebSockets</span>
-                        <span>React</span>
-                    </div>
-                    <a href="https://github.com/KritikaGupta15" target="_blank" class="card-link">View Source →</a>
+        <!-- Professional Experience -->
+        <section>
+            <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="timeline-title">Data Science Fellow / Full-Stack Software Engineer</span>
+                    <span class="timeline-date">Jul 2026 – Present</span>
                 </div>
+                <div class="timeline-company">Chicago Education Advocacy Cooperative (ChiEAC) — Chicago, IL</div>
+                <ul>
+                    <li>Partnered with business stakeholders to modernize proof-of-concept prototypes into secure, production-ready full-stack applications.</li>
+                    <li>Architected scalable backend microservices using C#/.NET and Python, integrated with SQL Server and PostgreSQL databases.</li>
+                    <li>Leveraged AI-first development tools (Claude Code, Codex) to accelerate code generation, refactoring, and vulnerability management.</li>
+                    <li>Configured secure OAuth/Entra ID authentication and deployed services to Microsoft Azure via automated GitHub Actions CI/CD pipelines.</li>
+                </ul>
+            </div>
 
-                <!-- COMMUNITYFLOW -->
-                <div class="bento-card col-span-6">
-                    <h3 class="project-title">CommunityFlow Chicago</h3>
-                    <p class="project-desc">
-                        Full-stack geospatial intelligence platform featuring a FastAPI backend, PostgreSQL database layer, 
-                        interactive mapping UI, and ETL data pipelines.
-                    </p>
-                    <div class="project-tags">
-                        <span>FastAPI</span>
-                        <span>PostgreSQL</span>
-                        <span>React</span>
-                        <span>Leaflet.js</span>
-                    </div>
-                    <a href="https://github.com/KritikaGupta15/communityflow" target="_blank" class="card-link">View GitHub →</a>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="timeline-title">Software Engineering Intern</span>
+                    <span class="timeline-date">Jun 2022 – Jul 2022</span>
                 </div>
+                <div class="timeline-company">ThinkNext Technologies — Punjab, India</div>
+                <ul>
+                    <li>Developed backend APIs using C# and Python, implementing strict object-oriented patterns and secure input validation.</li>
+                    <li>Built modular React frontend components and integrated REST APIs for high-concurrency inventory transactions.</li>
+                </ul>
+            </div>
 
-                <!-- RUL PREDICTION -->
-                <div class="bento-card col-span-6">
-                    <h3 class="project-title">Regime‑Aware RUL Prediction</h3>
-                    <p class="project-desc">
-                        Deep learning Remaining Useful Life prediction utilizing NASA CMAPSS turbofan data, custom clustering, 
-                        and an LSTM + Attention model architecture (IEEE Published).
-                    </p>
-                    <div class="project-tags">
-                        <span>Python</span>
-                        <span>Deep Learning</span>
-                        <span>LSTM</span>
-                        <span>IEEE</span>
-                    </div>
-                    <a href="https://github.com/KritikaGupta15/regime-aware-rul-prediction" target="_blank" class="card-link">View GitHub →</a>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="timeline-title">Python Programming Intern</span>
+                    <span class="timeline-date">Jul 2021 – Sep 2021</span>
                 </div>
-
-                <!-- URL SHORTENER -->
-                <div class="bento-card col-span-6">
-                    <h3 class="project-title">Cloud-Based URL Shortener</h3>
-                    <p class="project-desc">
-                        Scalable AWS cloud application using a containerized FastAPI microservice backend paired with 
-                        Amazon DynamoDB for high-speed tracking and redirection.
-                    </p>
-                    <div class="project-tags">
-                        <span>FastAPI</span>
-                        <span>AWS DynamoDB</span>
-                        <span>Docker</span>
-                    </div>
-                    <a href="https://github.com/KritikaGupta15/url-shortner-with-Cloud-Integration" target="_blank" class="card-link">View GitHub →</a>
-                </div>
-
+                <div class="timeline-company">GTB Institute — Punjab, India</div>
+                <ul>
+                    <li>Led a 3-person team to deliver an end-to-end data application, establishing automated unit testing harnesses.</li>
+                </ul>
             </div>
         </section>
 
-        <!-- EXPERIENCE -->
-        <section id="experience">
-            <h2>Experience</h2>
-            <div class="bento-card col-span-12" style="padding-top: 30px;">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">Jun 2022 – Jul 2022</div>
-                        <div class="timeline-title">Software Engineering Intern — ThinkNext Technologies</div>
-                        <div class="timeline-desc">
-                            Designed and built production backend services for inventory management using Python and Django. 
-                            Optimized relational database performance across MySQL and Oracle environments.
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">Jul 2021 – Sep 2021</div>
-                        <div class="timeline-title">Python Programming Intern — GTB Institute</div>
-                        <div class="timeline-desc">
-                            Engineered data workflows and automation scripts using Pandas and NumPy. Led a team to build 
-                            and deploy a complete enterprise management system.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact">
-            <h2>Get In Touch</h2>
-            <div class="bento-grid">
-                <div class="bento-card col-span-12" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+        <!-- Featured Projects -->
+        <section>
+            <h2><i class="fas fa-project-diagram"></i> Featured Engineering Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
                     <div>
-                        <p style="font-size: 16px; font-weight: 600; color: var(--text);">Ready to collaborate or discuss opportunities?</p>
-                        <p style="font-size: 14px; color: var(--muted); margin-top: 4px;">Detroit, MI • Open to Remote & Hybrid Roles</p>
-                    </div>
-                    <div style="display: flex; gap: 12px;">
-                        <a href="mailto:work.kritikagupta13@gmail.com" class="btn btn-primary">Email Me</a>
-                        <a href="https://www.linkedin.com/in/kritika-gupta-73335a276/" target="_blank" class="btn btn-secondary">LinkedIn</a>
-                        <a href="https://github.com/KritikaGupta15" target="_blank" class="btn btn-secondary">GitHub</a>
+                        <div class="project-title">NexusCore HFT Simulator</div>
+                        <span class="project-tech">Python • FastAPI • WebSockets • React</span>
+                        <p class="project-desc">Engineered an in-memory high-frequency trading matching engine with O(1) order book lookups and real-time WebSocket state streaming to a React dashboard.</p>
                     </div>
                 </div>
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">Agentic AI Smart City Assistant</div>
+                        <span class="project-tech">Python • RAG • ChromaDB • DeepSeek LLM</span>
+                        <p class="project-desc">Developed an autonomous multi-agent platform utilizing RAG and vector retrieval to process, index, and query dynamic urban data streams.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div>
+                        <div class="project-title">CommunityFlow Chicago</div>
+                        <span class="project-tech">React • C#/.NET • PostgreSQL • Leaflet.js</span>
+                        <p class="project-desc">Architected a geospatial web application featuring spatial queries, interactive mapping, and dual-mode Gemini AI context caching for community intelligence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Publication -->
+        <section>
+            <h2><i class="fas fa-graduation-cap"></i> Education & Publication</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="timeline-title">Central Michigan University — Mount Pleasant, MI</span>
+                    <span class="timeline-date">May 2026</span>
+                </div>
+                <div class="timeline-company">Master of Science in Computer Science | GPA: 3.77 / 4.0</div>
+            </div>
+
+            <div class="timeline-item" style="margin-top: 1.25rem;">
+                <div class="timeline-header">
+                    <span class="timeline-title">DAV University — Punjab, India</span>
+                    <span class="timeline-date">Jun 2023</span>
+                </div>
+                <div class="timeline-company">Bachelor of Technology in Computer Science | GPA: 3.07 / 4.0</div>
+            </div>
+
+            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                <h3 style="font-size: 1rem; color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-book-open" style="color: var(--accent);"></i> IEEE Publication</h3>
+                <p style="font-size: 0.9rem; color: var(--text-dark);">
+                    <strong>Gupta, K., Barot, N., & Gargees, R. S. (2026).</strong> "Regime-Aware Deep Learning Framework for Predictive Maintenance in Industrial Systems." <em>IEEE Xplore (MLISE 2026)</em>. DOI: 10.1109/MLISE70044.2026.11607667
+                </p>
             </div>
         </section>
 
     </div>
 
     <footer>
-        <div class="container" style="padding: 0;">
-            <p>© 2026 Kritika Gupta • Built with clean code & modern UI design.</p>
-        </div>
+        <p>© 2026 Kritika Gupta. All rights reserved. Built with modern web standards.</p>
     </footer>
 
-    <script>
-        function toggleTheme() {
-            document.body.classList.toggle("light");
-        }
-    </script>
 </body>
 </html>
